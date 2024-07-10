@@ -1,1 +1,1 @@
-# I'm Mart Joshua, a Data Analyst with a Bachelor's in Computer Science. My expertise includes SAP MDG, SAP ERP, Tableau, Power BI, and SQL. I specialize in data management, analysis, and visualization, leveraging these tools to drive insights and informed decision-making.
+I'm Mart Joshua, a Data Analyst with a Bachelor's in Computer Science. My expertise includes SAP MDG, SAP ERP, Tableau, Power BI, and SQL. I specialize in data management, analysis, and visualization, leveraging these tools to drive insights and informed decision-making.

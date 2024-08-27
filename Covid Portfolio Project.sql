@@ -3,23 +3,20 @@ from PortfolioProject..CovidDeaths
 where continent is not null
 order by 3,4
 
---select *
---from PortfolioProject..CovidVaccinations
 
 select location,date,total_cases,new_cases,total_deaths,population
 from PortfolioProject..CovidDeaths
 order by 1,2
 
 
--- looking at Total Cases vs Total Deaths
+-- Total Cases vs Total Deaths
 
 select location,date,total_cases,total_deaths,population,(total_deaths/total_cases)*100 as DeathPercentage
 from PortfolioProject..CovidDeaths
 Where location like 'Philippines'
 order by 1,2
 
--- looking at total cases vs population
--- shows what percentage of population got covid
+-- Percentage of population got covid
 select location,date,total_cases,population,(total_cases/population)*100 as DeathPercentage
 from PortfolioProject..CovidDeaths
 Where location like 'Philippines'
@@ -28,7 +25,7 @@ order by 1,2
 
 
 
---- looking at countries with highers infection rate comapared to Population
+--- Countries with highers infection rate comapared to Population
 
 select location,population,MAX(total_cases)as HighestInfectionCount,population,Max((total_cases/population))*100 as InfectedPercentPopulation
 from PortfolioProject..CovidDeaths
@@ -52,7 +49,8 @@ order by TotalDeathCount desc
 
 select continent,MAX(cast (total_deaths as int))as TotalDeathCount
 from PortfolioProject..CovidDeaths
---Where location like 'Philippines'
+	
+--Where location like ex: 'Philippines'
 where continent is not null
 group by continent
 order by TotalDeathCount desc
@@ -73,7 +71,7 @@ from PortfolioProject..CovidDeaths
 order by 1,2
 
 
--- looking at total population vs vaccinated 
+-- Total population vs vaccinated 
 
 Select dea.continent,dea.location, dea.date, dea.population,vac.new_vaccinations,
 SUM(vac.new_vaccinations) over(partition by dea.location order by dea.location, dea.date) as RollingPeopleVaccinated
@@ -85,7 +83,7 @@ Join PortfolioProject..CovidVaccinations vac
 	Where dea.continent is not null
 	order by 2,3
 
---Using cte
+--Using CTE
 
 	With PopVSVac (Continent, location, date, population, new_vaccinations, RollingPeopleVaccinated)
 	as
